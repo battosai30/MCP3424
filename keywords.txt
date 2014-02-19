@@ -1,0 +1,22 @@
+#######################################
+# Syntax Coloring Map For MCP3424
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+MCP3424	KEYWORD1
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+
+Measure	KEYWORD2
+Configuration	KEYWORD2
+IsConversionFinished	KEYWORD2
+NewConversion	KEYWORD2
+
+#######################################
+# Constants (LITERAL1)
+#######################################
