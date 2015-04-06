@@ -33,7 +33,7 @@ Contact : batto@hotmail.fr
 #endif
 
 #include <Wire.h>
-#include <Math.h>
+#include <math.h>
 
 class MCP3424 {
 
