@@ -24,12 +24,12 @@ void loop(){
 
     MCP.Configuration(i,18,1,8); // MCP3424 is configured to channel i with 18 bits resolution, continous mode and gain defined to 8 
 
-    Voltage[i]=MCP.Measure(); // Measure is stocked in array Voltage, note that the library will wait for a completed conversion that takes around 200 ms@18bits
+    Voltage[i-1]=MCP.Measure(); // Measure is stocked in array Voltage, note that the library will wait for a completed conversion that takes around 200 ms@18bits
 
     Serial.print("Channel "); // print results
     Serial.print(i);
     Serial.print(" : ");  
-    Serial.print(Voltage[i]);
+    Serial.print(Voltage[i-1]);
     Serial.println(" microVolt");
 
   }
