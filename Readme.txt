@@ -3,11 +3,12 @@ Author:  B@tto
 Contact: batto@hotmail.fr
 
 Current version
-1.1
+1.3
 
 History
+1.3 26/01/17 : Multichannel example had a bug (out of index error on Voltage[]) and code was rewritten
 1.1 06/12/2012 : issues with detection of a finished conversion has been resolved
-1.0 15/07/2012: initial release 
+1.0 15/07/2012 : initial release 
 
 Description
 MCP3424 is a I2C 4 channels, 18 bits resolution ADC controlled over I2C.
@@ -23,7 +24,7 @@ select from the menubar "Sketch->Import Library->MCP3424".
 Once the library is imported, an "#incude <MCP3424.h>" line will appear at the top of your sketch. 
 
 Creation
- MCP3424(int address) -> Create instance of MCP3424.Address is A2A1A0 (refer to datasheet). For example, if pins Adr0 and Adr1 are high, the instanciation would be "MCP3424 MCP(6)" because A2=1 A1=1 A0=0 so in binary 110 and 6 in decimal
+ MCP3424(int address) -> Create instance of MCP3424.Address is A2A1A0 (refer to datasheet). For example, if pins Adr0 and Adr1 are high, the instanciation would be "MCP3424 MCP(6)" because A2=1 A1=1 A0=0 so in binary 110 and 6 in décimal
  
 Methods
 	
@@ -42,7 +43,7 @@ MCP3424 is a class, like any class you can drive any numbers of chip you want wi
 
 I can't measure voltage over 2.048V, why ?
 Because the internal reference is 2.O48V, but if you use it in differential mode, you can use it from -2.048V to +2.048V. 
-Another solution is to use a voltage divider (2 x 1k resistors for example).
+Another solution is to use a voltage divider (2 x 1k resistors or example).
 
 I'm not measuring voltage over 2.048V but my MCP3424 seems to be saturated, why ?
 Maybe you are using the programmable amplifier (PGA). In fact, the limit of 2.O48V is effective after it, so if your voltage multipliates by the PGA is superior to 2.048V, the ADC is saturated.
