@@ -1,6 +1,6 @@
-/* MCP3424 library version 1.2
+/* MCP3424 library version 1.3
 
-Writed by B@tto 
+Writed by B@tto
 Contact : batto@hotmail.fr
 
 
@@ -22,135 +22,128 @@ Contact : batto@hotmail.fr
   Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
-#include <MCP3424.h>
+#include "MCP3424.h"
 
 MCP3424::MCP3424(uint8_t adresse){
-Wire.begin();
-_adresse=1101<<3;
+
+_adresse=0b1101<<3;
 _adresse|=adresse;
+
+
+
 }
 
 MCP3424::~MCP3424(){
 
 }
 
+void MCP3424::begin(byte setMod){
 
-void MCP3424::Configuration(uint8_t channel,uint8_t resolution,bool mode,uint8_t PGA){
+#ifdef ENERGIA
+Wire.setModule(setMod);
+#endif
+
+Wire.begin();
+
+}
+
+void MCP3424::configuration(uint8_t channel,uint8_t resolution,bool mode,uint8_t PGA){
+
+if(resolution!=12 && resolution!=14 && resolution!=16 && resolution!=18) _resolution=12;
+ else _resolution=resolution;
+
 _PGA=PGA;
-
-if(resolution!=12 && resolution!=14 && resolution!=16 && resolution!=18) {
-_resolution=12;
-} else _resolution=resolution;
-
 _mode=mode;
+
 _cfgbyte=0;
-_cfgbyte=_cfgbyte<<2;
-_cfgbyte|=(channel-1);
-_cfgbyte=_cfgbyte<<1;
-_cfgbyte|=mode;
-_cfgbyte=_cfgbyte<<2;
-_cfgbyte|=int((_resolution-12)/2);
-_cfgbyte=_cfgbyte<<2;
-_cfgbyte|=int(log(PGA)/log(2));
+_cfgbyte |= ((channel-1) & 0x3) << 5;
+_cfgbyte |= (mode & 0x1) << 4;
+_cfgbyte |= (int((_resolution-12)/2) & 0x3) << 2;
+_cfgbyte |= (int(logf(PGA)/logf(2))) & 0x3;
 
 Wire.beginTransmission(_adresse);
 Wire.write(_cfgbyte);
 Wire.endTransmission();
+
 }
 
-void MCP3424::NewConversion(){
+void MCP3424::newConversion(){
+
 Wire.beginTransmission(_adresse);
 Wire.write((_cfgbyte|=128));
 Wire.endTransmission();
+
 }
 
-bool MCP3424::IsConversionFinished(){
+bool MCP3424::isConversionFinished(){
+
+uint8_t _requestedByte;
 
 if(_resolution!=18){
-_RequestedByte = 3;    
-} else _RequestedByte = 4;
+_requestedByte = 3;
+} else _requestedByte = 4;
 
-Wire.requestFrom(_adresse, _RequestedByte);
-_i=0;
-while(Wire.available()) _Buffer[_i++]=Wire.read();
+Wire.requestFrom(_adresse, _requestedByte);
 
-_testvariable = _Buffer[_RequestedByte-1]>>7;
+uint8_t _i=0;
 
-return _testvariable;
+while(Wire.available()) _buffer[_i++]=Wire.read();
+
+return (_buffer[_requestedByte-1] & 0b10000000);
 
 }
 
 
-long MCP3424::Measure(){
+long MCP3424::measure(){
 
-  _resultat=0;
+long _resultat=0;
 
-while(IsConversionFinished()==1);
+while(isConversionFinished()==1);
 
 switch (_resolution){
-  
+
 case 12:
- _resultat = _Buffer[0];
- _resultat&=0b00001111;  
- _resultat = _resultat << 8;    
-_resultat |= _Buffer[1];
 
-if(_resultat>2048-1) {
-_resultat=_resultat-4096-1;
-}
+ _resultat = (((long)_buffer[0] & 0x0F) << 8) | ((long)_buffer[1] & 0xFF); 
+ 
+ _resultat |= long(_buffer[0] & 0x80) << 24;
 
- _resultat = _resultat*1000/_PGA;      
-   
+ _resultat = _resultat*1000.0/_PGA;
+
  break;
-    
+
  case 14:
-_resultat = _Buffer[0];
- _resultat&=0b00111111;  
-_resultat = _resultat << 8;    
- _resultat |= _Buffer[1];
+ 
+_resultat = (((long)_buffer[0] & 0xBF) << 8) | ((long)_buffer[1] & 0xFF); 
 
-if(_resultat>8192-1) {
-_resultat=_resultat-16384-1;
-}
+_resultat |= long(_buffer[0] & 0x80) << 24;
 
-_resultat = _resultat*250/_PGA;  
-       
+_resultat = _resultat*250/_PGA;
+
  break;
-    
+
 case 16:
 
-_resultat = _Buffer[0]; 
-_resultat = _resultat << 8;    
-_resultat |= _Buffer[1];
+_resultat = (((long)_buffer[0] & 0x7F) << 8) | ((long)_buffer[1] & 0xFF); 
 
-if(_resultat>32768-1) {
-_resultat=_resultat-65536-1;
-}
+ _resultat |= long(_buffer[0] & 0x80) << 24;
 
-_resultat = _resultat*62.5/_PGA;   
-      
+_resultat = _resultat*62.5/_PGA;
+
  break;
-  
+
 case 18:
 
-_resultat = _Buffer[0];
- _resultat&=0b00000011;  
-  _resultat = _resultat << 8;    
-  _resultat |= _Buffer[1];
- _resultat = _resultat << 8;    
- _resultat |= _Buffer[2];
- 
-if(_resultat>131072-1) {
-_resultat=_resultat-262144-1;
-}
+_resultat = (((long)_buffer[0] & 0x01) << 16) | (((long)_buffer[1] & 0xFF) <<8) | ((long)_buffer[2] & 0xFF); 
 
-_resultat = _resultat*15.625/_PGA; 
+_resultat |=((long)_buffer[0] & 0x80) << 24;
+
+_resultat = _resultat*15.625/_PGA;
 
   break;
 }
- 			
+
 return _resultat;
-	
 
 }
 

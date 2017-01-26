@@ -1,4 +1,4 @@
-/* MCP3424 library version 1.2
+/* MCP3424 library version 1.3
 
 Writed by B@tto 
 Contact : batto@hotmail.fr
@@ -33,7 +33,7 @@ Contact : batto@hotmail.fr
 #endif
 
 #include <Wire.h>
-#include <math.h>
+#include <Math.h>
 
 class MCP3424 {
 
@@ -41,23 +41,20 @@ public:
 
 MCP3424(uint8_t adresse);
 ~MCP3424();
-void Configuration(uint8_t channel,uint8_t resolution,bool mode,uint8_t PGA);
-void NewConversion();
-bool IsConversionFinished();
-long Measure();
+void begin(byte setMod = 1);
+void configuration(uint8_t channel,uint8_t resolution,bool mode,uint8_t PGA);
+void newConversion();
+bool isConversionFinished();
+long measure();
 
 private:
 
 uint8_t _adresse;
-long _resultat;
 uint8_t _resolution;
 bool _mode;
-uint8_t _i;
-uint8_t _testvariable;
 uint8_t _cfgbyte;
 uint8_t _PGA;
-uint8_t _RequestedByte;
-uint8_t _Buffer[4];
+uint8_t _buffer[4];
 
 };
 
