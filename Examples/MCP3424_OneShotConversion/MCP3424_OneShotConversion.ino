@@ -17,6 +17,7 @@ long Voltage;
 void setup(){ 
 
   Serial.begin(9600); // start serial for output
+  MCP.begin(0);
   MCP.configuration(1,16,0,1); // Channel 1, 16 bits resolution, one-shot mode, amplifier gain = 1
 
 }
