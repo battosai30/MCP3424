@@ -1,10 +1,10 @@
-/* MCP3424 library version 1.3
+/* MCP342x library version 1.6
 
 Writed by B@tto 
 Contact : batto@hotmail.fr
 
 
-  MCP3424.h - ADC 18 bits i2c library for Wiring & Arduino
+  MCP342x.h - ADC 18 bits i2c library for Wiring & Arduino
   Copyright (c) 2012 Yann LEFEBVRE.  All right reserved.
 
   This library is free software; you can redistribute it and/or
@@ -23,8 +23,8 @@ Contact : batto@hotmail.fr
 */
 
 
-#ifndef MCP3424_H
-#define MCP3424_H
+#ifndef MCP342x_H
+#define MCP342x_H
 
 #if defined(ARDUINO) && ARDUINO >= 100
 #include "Arduino.h"
@@ -33,27 +33,62 @@ Contact : batto@hotmail.fr
 #endif
 
 #include <Wire.h>
-#include <math.h>
+//#include <Math.h>
 
-class MCP3424 {
+typedef enum MEASURE_MODE
+{
+	ONE_SHOT_MODE=0,
+	CONTINUOUS_MODE
+};
+
+typedef enum RESOLUTION
+{
+	RESOLUTION_12_BITS=0,
+	RESOLUTION_14_BITS,
+	RESOLUTION_16_BITS,
+	RESOLUTION_18_BITS
+};
+
+typedef enum CHANNELS
+{
+	CH1=0,
+	CH2,
+	CH3,
+	CH4
+};
+
+typedef enum PGA
+{
+	PGA_X1=0,
+	PGA_X2,
+	PGA_X4,
+	PGA_X8
+};
+
+const uint8_t resolutionConvert[] = {12,14,16,18};
+const uint8_t PGAConvert[] = {1,2,4,8};
+
+class MCP342x {
 
 public:
 
-MCP3424(uint8_t adresse);
-~MCP3424();
-void begin(byte setMod = 1);
-void configuration(uint8_t channel,uint8_t resolution,bool mode,uint8_t PGA);
+MCP342x(uint8_t adresse);
+~MCP342x();
+void begin(uint8_t setMod = 1);
+void setConfiguration(CHANNELS channel,RESOLUTION resolution,MEASURE_MODE mode,PGA pga);
 void newConversion();
 bool isConversionFinished();
-long measure();
+int32_t measure();
+void getRawDatas(uint8_t buffer[4]);
+uint8_t getConfiguration();
 
 private:
 
 uint8_t _adresse;
-uint8_t _resolution;
-bool _mode;
-uint8_t _cfgbyte;
-uint8_t _PGA;
+RESOLUTION _resolution;
+MEASURE_MODE _mode;
+PGA _PGA;
+int32_t _LSB;
 uint8_t _buffer[4];
 
 };
