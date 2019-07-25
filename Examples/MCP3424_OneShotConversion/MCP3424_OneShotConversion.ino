@@ -10,7 +10,7 @@ A new conversion has to be initiated by the user
 #include <Wire.h>
 #include <MCP342x.h>
 
-MCP3424 MCP(6); // Declaration of MCP3424
+MCP342x MCP(6); // Declaration of MCP3424
 
 long Voltage;
 
