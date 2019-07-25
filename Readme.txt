@@ -2,10 +2,11 @@ MCP342x Library for Arduino
 Author:  B@tto
 Contact: batto@hotmail.fr
 
-Current ve6rsion
-1.6
+Current version
+1.7
 
 History
+1.7 25/07/2019 : support on MCP3421 confirmed, changed to MCP342x. Update examples
 1.6 19/04/2019 : Bug correction
 1.3 26/01/17 : Multichannel example had a bug (out of index error on Voltage[]) and code was rewritten
 1.1 06/12/2012 : issues with detection of a finished conversion has been resolved
