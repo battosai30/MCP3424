@@ -8,7 +8,7 @@ In this example, the four channel are measured and results displayed by serail c
 #include <MCP342x.h>
 #include <Wire.h>
 
-MCP3424 MCP(0); // Declaration of MCP3424 pin addr1 et addr0 are connected to +5V
+MCP342x MCP(0); // Declaration of MCP3424 pin addr1 et addr0 are connected to +5V
 
 long Voltage[4]; // Array used to store results
 
