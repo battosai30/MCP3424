@@ -26,7 +26,7 @@ void loop(){
   
   for(int i=1;i<=4;i++){
 
-      MCP.configuration(i,RESOLUTION_12_BITS,CONTINUOUS_MODE,PGA_X8); // MCP3424 is configured to channel i with 18 bits resolution, continous mode and gain defined to 8 
+      MCP.setConfiguration(i,RESOLUTION_12_BITS,CONTINUOUS_MODE,PGA_X8); // MCP3424 is configured to channel i with 18 bits resolution, continous mode and gain defined to 8 
 
     Voltage[i-1]=MCP.measure(); // Measure is stocked in array Voltage, note that the library will wait for a completed conversion that takes around 200 ms@18bits
 
@@ -43,7 +43,7 @@ void loop(){
   
     for(int i=1;i<=4;i++){
 
-      MCP.configuration(i,RESOLUTION_14_BITS,CONTINUOUS_MODE,PGA_X8); // MCP3424 is configured to channel i with 18 bits resolution, continous mode and gain defined to 8 
+      MCP.setConfiguration(i,RESOLUTION_14_BITS,CONTINUOUS_MODE,PGA_X8); // MCP3424 is configured to channel i with 18 bits resolution, continous mode and gain defined to 8 
 
     Voltage[i-1]=MCP.measure(); // Measure is stocked in array Voltage, note that the library will wait for a completed conversion that takes around 200 ms@18bits
 
@@ -60,7 +60,7 @@ void loop(){
   
     for(int i=1;i<=4;i++){
 
-    MCP.configuration(i,RESOLUTION_16_BITS,CONTINUOUS_MODE,PGA_X8); // MCP3424 is configured to channel i with 18 bits resolution, continous mode and gain defined to 8 
+    MCP.setConfiguration(i,RESOLUTION_16_BITS,CONTINUOUS_MODE,PGA_X8); // MCP3424 is configured to channel i with 18 bits resolution, continous mode and gain defined to 8 
 
     Voltage[i-1]=MCP.measure(); // Measure is stocked in array Voltage, note that the library will wait for a completed conversion that takes around 200 ms@18bits
 
@@ -77,7 +77,7 @@ void loop(){
   
     for(int i=1;i<=4;i++){
 
-    MCP.configuration(i,RESOLUTION_18_BITS,CONTINUOUS_MODE,PGA_X8);// MCP3424 is configured to channel i with 18 bits resolution, continous mode and gain defined to 8 
+    MCP.setConfiguration(i,RESOLUTION_18_BITS,CONTINUOUS_MODE,PGA_X8);// MCP3424 is configured to channel i with 18 bits resolution, continous mode and gain defined to 8 
 
     Voltage[i-1]=MCP.measure(); // Measure is stocked in array Voltage, note that the library will wait for a completed conversion that takes around 200 ms@18bits
 
