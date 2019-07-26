@@ -18,7 +18,7 @@ void setup(){
 
   Serial.begin(9600); // start serial for output
   MCP.begin(0);
-  MCP.configuration(CH1,RESOLUTION_16_BITS,ONE_SHOT_MODE,PGA_X1); // Channel 1, 16 bits resolution, one-shot mode, amplifier gain = 1
+  MCP.setConfiguration(CH1,RESOLUTION_16_BITS,ONE_SHOT_MODE,PGA_X1); // Channel 1, 16 bits resolution, one-shot mode, amplifier gain = 1
 
 }
 
