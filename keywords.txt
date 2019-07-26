@@ -13,9 +13,11 @@ MCP3424	KEYWORD1
 #######################################
 
 measure	KEYWORD2
-configuration	KEYWORD2
+setConfiguration	KEYWORD2
 isConversionFinished	KEYWORD2
 newConversion	KEYWORD2
+getRawDatas KEYWORD2
+getConfiguration KEYWORD2
 
 #######################################
 # Constants (LITERAL1)
