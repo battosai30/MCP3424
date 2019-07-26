@@ -40,8 +40,8 @@ void I2C_Update()
 
   if (adc_call == true)
   { //Conversion Time 1000/SPS = 18Bit 300ms | 16Bit 70ms  | 14Bit 20ms | 12Bit 5ms
-    MCP_1.configuration(i2c_counterread, 18, 1, 1);
-    MCP_2.configuration(i2c_counterread, 18, 1, 1);
+    MCP_1.setConfiguration(i2c_counterread, 18, 1, 1);
+    MCP_2.setConfiguration(i2c_counterread, 18, 1, 1);
     adc_call = false;
     Serial.println("New conversion");
   }
