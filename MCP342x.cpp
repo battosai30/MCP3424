@@ -68,7 +68,8 @@ uint8_t cfgbyte=0;
  
 _resolution=resolution;
 _PGA=pga;
-_LSB = 2048000000/(1<<(resolutionConvert[_resolution]-1));
+uint32_t divisor = 1;
+_LSB = 2048000000/(divisor<<(resolutionConvert[_resolution]-1));
 
 cfgbyte |= (channel & 0x3) << 5;
 cfgbyte |= (mode & 0x1) << 4;
