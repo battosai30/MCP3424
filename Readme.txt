@@ -3,9 +3,10 @@ Author:  B@tto
 Contact: batto@hotmail.fr
 
 Current version
-1.7
+1.8
 
 History
+1.8 26/02/2019 : correction for 16-bit platform (bad bit shifting during 18-bits acquisition)
 1.7 25/07/2019 : support on MCP3421 confirmed, changed to MCP342x. Update examples
 1.6 19/04/2019 : Bug correction
 1.3 26/01/17 : Multichannel example had a bug (out of index error on Voltage[]) and code was rewritten
