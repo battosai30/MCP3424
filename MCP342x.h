@@ -1,4 +1,4 @@
-/* MCP342x library version 1.8
+/* MCP342x library version 1.9
 
 Writed by B@tto 
 Contact : batto@hotmail.fr
@@ -75,7 +75,7 @@ public:
 MCP342x(uint8_t adresse);
 ~MCP342x();
 void begin(uint8_t setMod = 1);
-void setConfiguration(CHANNELS channel,RESOLUTION resolution,MEASURE_MODE mode,PGA pga);
+void setConfiguration(byte channel,RESOLUTION resolution,MEASURE_MODE mode,PGA pga);
 void newConversion();
 bool isConversionFinished();
 int32_t measure();
