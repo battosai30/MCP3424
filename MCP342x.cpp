@@ -1,4 +1,4 @@
-/* MCP342x library version 1.8
+/* MCP342x library version 1.9
 
 Writed by B@tto
 Contact : batto@hotmail.fr
@@ -61,7 +61,7 @@ uint8_t MCP342x::getConfiguration()
 	
 }
 
-void MCP342x::setConfiguration(CHANNELS channel,RESOLUTION resolution,MEASURE_MODE mode,PGA pga)
+void MCP342x::setConfiguration(byte channel,RESOLUTION resolution,MEASURE_MODE mode,PGA pga)
 {
 
 uint8_t cfgbyte=0;
