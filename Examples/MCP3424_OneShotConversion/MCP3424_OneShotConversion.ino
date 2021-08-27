@@ -1,4 +1,4 @@
-/* MCP 3424 version 1.2 example sketch OneShotConversion
+/* MCP 3424 version 1.9 example sketch OneShotConversion
 Written by B@tto 
 Contact : batto@hotmail.fr
 
