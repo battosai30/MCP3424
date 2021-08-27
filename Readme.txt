@@ -3,9 +3,10 @@ Author:  B@tto
 Contact: batto@hotmail.fr
 
 Current version
-1.8
+1.9
 
 History
+1.9 27/08/2021 : changed CHANNELS to byte type in setConfiguration()
 1.8 26/02/2019 : correction for 16-bit platform (bad bit shifting during 18-bits acquisition)
 1.7 25/07/2019 : support on MCP3421 confirmed, changed to MCP342x. Update examples
 1.6 19/04/2019 : Bug correction
