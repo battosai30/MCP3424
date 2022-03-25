@@ -21,13 +21,13 @@ MCP342x (3421/22/23/24) is a I2C 1/2/3/4 channels, 18 bits resolution ADC contro
 It has an internal reference of 2.048V and an on-board programmable gain amplifier (PGA).
 Supply : 2.7V to 5V
 Resolution is programmable (12, 14, 16 or 18 bits). 
-Download, install and import
 
-### Download zip ###
-Put the MCP3424 folder in "hardware\libraries\". 
-In the Arduino IDE, create a new sketch (or open one) and 
-select from the menubar "Sketch->Import Library->MCP342x".
-Once the library is imported, an "#incude <MCP342x.h>" line will appear at the top of your sketch. 
+### Download, install and import ###
+*Download zip
+*Put the MCP3424 folder in "hardware\libraries\". 
+*In the Arduino IDE, create a new sketch (or open one) and 
+*select from the menubar "Sketch->Import Library->MCP342x".
+*Once the library is imported, an "#incude <MCP342x.h>" line will appear at the top of your sketch. 
 
 ### Creation ###
  MCP3424(int address) -> Create instance of MCP342x.Address is A2A1A0 (refer to datasheet). For example, if pins Adr0 and Adr1 are high, the instanciation would be "MCP342x MCP(6)" because A2=1 A1=1 A0=0 so in binary 110 and 6 in décimal
