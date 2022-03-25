@@ -34,13 +34,40 @@ Resolution is programmable (12, 14, 16 or 18 bits).
  
 ## Methods ##
 	
-**void setConfiguration(int channel,int resolution,int mode,int mode, int PGA)** -> send the configuration byte to the MCP3424. Choose channel (1,2,3 or 4), resolution (12, 14, 16 or 18), mode (1=continous mode 0=one-shot conversion), PGA (1, 2, 4 or 8)
+**void setConfiguration(byte channel,RESOLUTION resolution,MEASURE_MODE mode,PGA pga)** -> send the configuration byte to the MCP3424. 
 
-**long Measure()** -> Return the result of the lastest conversion in µV. Note that the library waits for a complete conversion.
+Available MEASURE_MODE :
+- ONE_SHOT_MODE
+- CONTINUOUS_MODE
 
-**void NewConversion()** -> in one-shot mode, initiate a new conversion
+Available RESOLUTION :
+- RESOLUTION_12_BITS
+- RESOLUTION_14_BITS
+- RESOLUTION_16_BITS
+- RESOLUTION_18_BITS
 
-**int IsConversionFinished()** -> Returns 1 if conversion is not finished, 0 if it's completed
+Available CHANNELS :	
+- CH1
+- CH2
+- CH3
+- CH4
+
+Available PGA :
+- PGA_X1
+- PGA_X2
+- PGA_X4
+- PGA_X8
+
+
+**getConfiguration()** -> return the rax value of the configuration register.
+
+**getRawDatas(uint8_t buffer[4])** -> fill the array passed as argument with raw result (means without conversion to mv) of each channel
+
+**long measure()** -> Return the result of the lastest conversion in µV. Note that the library waits for a complete conversion.
+
+**void newConversion()** -> in one-shot mode, initiate a new conversion
+
+**int isConversionFinished()** -> Returns 1 if conversion is not finished, 0 if it's completed
 
 ## Examples ##
 
