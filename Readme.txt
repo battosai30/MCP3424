@@ -10,7 +10,7 @@ History
 1.8 26/02/2019 : correction for 16-bit platform (bad bit shifting during 18-bits acquisition)
 1.7 25/07/2019 : support on MCP3421 confirmed, changed to MCP342x. Update examples
 1.6 19/04/2019 : Bug correction
-1.3 26/01/17 : Multichannel example had a bug (out of index error on Voltage[]) and code was rewritten
+1.3 26/01/2017 : Multichannel example had a bug (out of index error on Voltage[]) and code was rewritten
 1.1 06/12/2012 : issues with detection of a finished conversion has been resolved
 1.0 15/07/2012 : initial release 
 
