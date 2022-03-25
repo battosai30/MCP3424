@@ -1,4 +1,5 @@
 # MCP342x Library for Arduino #
+
 Author:  B@tto
 Contact: batto@hotmail.fr
 
