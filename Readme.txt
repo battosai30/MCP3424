@@ -2,7 +2,7 @@
 Author:  B@tto
 Contact: batto@hotmail.fr
 
-###Current version###
+### Current version ###
 1.9
 
 ###History###
