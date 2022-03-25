@@ -5,21 +5,27 @@ Author:  B@tto
 Contact: batto@hotmail.fr
 
 ### Current version ###
+
 1.9
 
 ## History ##
-1.9 27/08/2021 : changed CHANNELS to byte type in setConfiguration()
-1.8 26/02/2019 : correction for 16-bit platform (bad bit shifting during 18-bits acquisition)
-1.7 25/07/2019 : support on MCP3421 confirmed, changed to MCP342x. Update examples
-1.6 19/04/2019 : Bug correction
-1.3 26/01/2017 : Multichannel example had a bug (out of index error on Voltage[]) and code was rewritten
-1.1 06/12/2012 : issues with detection of a finished conversion has been resolved
-1.0 15/07/2012 : initial release 
+
+- 1.9 27/08/2021 : changed CHANNELS to byte type in setConfiguration()
+- 1.8 26/02/2019 : correction for 16-bit platform (bad bit shifting during 18-bits acquisition)
+- 1.7 25/07/2019 : support on MCP3421 confirmed, changed to MCP342x. Update examples
+- 1.6 19/04/2019 : Bug correction
+- 1.3 26/01/2017 : Multichannel example had a bug (out of index error on Voltage[]) and code was rewritten
+- 1.1 06/12/2012 : issues with detection of a finished conversion has been resolved
+- 1.0 15/07/2012 : initial release 
 
 ## Description ##
+
 MCP342x (3421/22/23/24) is a I2C 1/2/3/4 channels, 18 bits resolution ADC controlled over I2C.
+
 It has an internal reference of 2.048V and an on-board programmable gain amplifier (PGA).
+
 Supply : 2.7V to 5V
+
 Resolution is programmable (12, 14, 16 or 18 bits). 
 
 ## Download, install and import ##
