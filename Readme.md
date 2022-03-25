@@ -7,7 +7,7 @@ Contact: batto@hotmail.fr
 ### Current version ###
 1.9
 
-### History ###
+## History ##
 1.9 27/08/2021 : changed CHANNELS to byte type in setConfiguration()
 1.8 26/02/2019 : correction for 16-bit platform (bad bit shifting during 18-bits acquisition)
 1.7 25/07/2019 : support on MCP3421 confirmed, changed to MCP342x. Update examples
@@ -16,23 +16,23 @@ Contact: batto@hotmail.fr
 1.1 06/12/2012 : issues with detection of a finished conversion has been resolved
 1.0 15/07/2012 : initial release 
 
-### Description ###
+## Description ##
 MCP342x (3421/22/23/24) is a I2C 1/2/3/4 channels, 18 bits resolution ADC controlled over I2C.
 It has an internal reference of 2.048V and an on-board programmable gain amplifier (PGA).
 Supply : 2.7V to 5V
 Resolution is programmable (12, 14, 16 or 18 bits). 
 
-### Download, install and import ###
+## Download, install and import ##
 - Download zip
 - Put the MCP3424 folder in "hardware\libraries\". 
 - In the Arduino IDE, create a new sketch (or open one) and 
 - Select from the menubar "Sketch->Import Library->MCP342x".
 - Once the library is imported, an "#include <MCP342x.h>" line will appear at the top of your sketch. 
 
-### Creation ###
+## Creation ##
 **MCP3424(int address)** -> Create instance of MCP342x.Address is A2A1A0 (refer to datasheet). For example, if pins Adr0 and Adr1 are high, the instanciation would be "MCP342x MCP(6)" because A2=1 A1=1 A0=0 so in binary 110 and 6 in decimal.
  
-### Methods ###
+## Methods ##
 	
 **void setConfiguration(int channel,int resolution,int mode,int mode, int PGA)** -> send the configuration byte to the MCP3424. Choose channel (1,2,3 or 4), resolution (12, 14, 16 or 18), mode (1=continous mode 0=one-shot conversion), PGA (1, 2, 4 or 8)
 
@@ -42,11 +42,13 @@ Resolution is programmable (12, 14, 16 or 18 bits).
 
 **int IsConversionFinished()** -> Returns 1 if conversion is not finished, 0 if it's completed
 
-### Example ###
-One-Shot conversion -> the conversion is initiated by the user
-Multichannel -> classic use scanning all the channels
+## Examples ##
 
-### FAQ ###
+**One-Shot conversion** -> the conversion is initiated by the user
+
+**Multichannel** -> classic use scanning all the channels
+
+## FAQ ##
 #### How can I use multiple MCP342x object ? ####
 MCP342x is a class, like any class you can drive any numbers of chip you want with only 2 single pin (Adr0 and Adr1) but by setting different address for each.
 
