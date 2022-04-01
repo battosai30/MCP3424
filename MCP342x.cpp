@@ -48,6 +48,10 @@ void MCP342x::begin(uint8_t setMod)
 
 }
 
+uint8_t MCP342x::getAddress()
+{
+	return _adresse;
+}
 uint8_t MCP342x::getConfiguration()
 {
 
