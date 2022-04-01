@@ -81,7 +81,7 @@ bool isConversionFinished();
 int32_t measure();
 void getRawDatas(uint8_t buffer[4]);
 uint8_t getConfiguration();
-uint8_t getAdress();
+uint8_t getAddress();
 	
 private:
 
