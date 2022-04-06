@@ -1,3 +1,11 @@
+//****** WARNING ******//
+
+/* This example is not up to date and will not work as it 
+I can't test it right now but if you need help create an issue in the Github
+*/
+
+
+
 /* MCP 3424 version 1.7 example Non-blocking Multichannel sketch
 Written by B@tto 
 Edit: LuckyLuzz
