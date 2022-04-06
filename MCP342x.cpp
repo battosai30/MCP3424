@@ -68,6 +68,11 @@ uint8_t MCP342x::getConfiguration()
 void MCP342x::setConfiguration(byte channel,RESOLUTION resolution,MEASURE_MODE mode,PGA pga)
 {
 
+channel&=0b11;
+resolution&=0b11;
+mode&=0b1;
+pga&=0b11;
+	
 uint8_t cfgbyte=0;
  
 _resolution=resolution;
