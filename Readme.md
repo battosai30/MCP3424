@@ -68,9 +68,9 @@ Available PGA :
 
 **getConfiguration()** -> return the rax value of the configuration register.
 
-**getRawDatas(uint8_t buffer[4])** -> fill the array passed as argument with raw result (means without conversion to mv) of each channel
+**getRawDatas(uint8_t buffer[4])** -> fill the array passed as argument with raw result (means without conversion to mv). Mainly intended for debug.
 
-**long measure()** -> Return the result of the lastest conversion in µV. Note that the library waits for a complete conversion.
+**long measure()** -> Return the result of the lastest conversion in nanoVolt. Note that the library waits for a complete conversion.
 
 **void newConversion()** -> in one-shot mode, initiate a new conversion
 
