@@ -1,5 +1,7 @@
 # MCP342x Library for Arduino #
 
+Repository : https://github.com/battosai30/MCP3424
+
 Author:  B@tto
 
 Contact: batto@hotmail.fr
@@ -88,7 +90,7 @@ Available PGA :
 MCP342x is a class, like any class you can drive any numbers of chip you want with only 2 single pin (Adr0 and Adr1) but by setting different address for each.
 
 #### I can't measure voltage over 2.048V, why ? ####
-Because the internal reference is 2.O48V, but if you use it in differential mode, you can use it from -2.048V to +2.048V. 
+Because the internal reference is 2.048V, but if you use it in differential mode, you can use it from -2.048V to +2.048V. 
 Another solution is to use a voltage divider (2 x 1k resistors or example).
 
 #### I'm not measuring voltage over 2.048V but my MCP342x seems to be saturated, why ? ####
