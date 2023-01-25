@@ -1,4 +1,4 @@
-/* MCP 3424 version 1.9 example sketch Multichannel
+/* MCP 3424 version 1.9.2 example sketch Multichannel
 Written by B@tto 
 Contact : batto@hotmail.fr
 

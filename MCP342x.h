@@ -1,4 +1,4 @@
-/* MCP342x library version 1.9
+/* MCP342x library version 1.9.2
 
 Writed by B@tto 
 Contact : batto@hotmail.fr
@@ -35,13 +35,13 @@ Contact : batto@hotmail.fr
 #include <Wire.h>
 //#include <Math.h>
 
-typedef enum MEASURE_MODE
+enum MEASURE_MODE
 {
 	ONE_SHOT_MODE=0,
 	CONTINUOUS_MODE
 };
 
-typedef enum RESOLUTION
+enum RESOLUTION
 {
 	RESOLUTION_12_BITS=0,
 	RESOLUTION_14_BITS,
@@ -49,7 +49,7 @@ typedef enum RESOLUTION
 	RESOLUTION_18_BITS
 };
 
-typedef enum CHANNELS
+enum CHANNELS
 {
 	CH1=0,
 	CH2,
@@ -57,7 +57,7 @@ typedef enum CHANNELS
 	CH4
 };
 
-typedef enum PGA
+enum PGA
 {
 	PGA_X1=0,
 	PGA_X2,
@@ -75,7 +75,7 @@ public:
 MCP342x(uint8_t adresse);
 ~MCP342x();
 void begin(uint8_t setMod = 1);
-void setConfiguration(byte channel,RESOLUTION resolution,MEASURE_MODE mode,PGA pga);
+void setConfiguration(byte channel,int resolution,int mode,int pga);
 void newConversion();
 bool isConversionFinished();
 int32_t measure();
@@ -86,9 +86,9 @@ uint8_t getAddress();
 private:
 
 uint8_t _adresse;
-RESOLUTION _resolution;
-MEASURE_MODE _mode;
-PGA _PGA;
+int _resolution;
+int _mode;
+int _PGA;
 int32_t _LSB;
 uint8_t _buffer[4];
 
