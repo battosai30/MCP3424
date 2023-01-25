@@ -6,12 +6,12 @@ Contact: batto@hotmail.fr
 
 ### Current version ###
 
-1.9.2
+1.9.3
 
 ## History ##
 
-- 1.9.2  25/01/2023 : revert back about typedef enum etc ... Caused issues on ESP32
-- 1.9.1 06/04/2022 : add some constrain in setConfiguration() to avoid out of index crashes, and add a getAddress() function to get i2c computed real address
+- 1.9.3  25/01/2023 : revert back about typedef enum etc ... Caused issues on ESP32
+- 1.92 06/04/2022 : add some constrain in setConfiguration() to avoid out of index crashes, and add a getAddress() function to get i2c computed real address
 - 1.9 27/08/2021 : changed CHANNELS to byte type in setConfiguration()
 - 1.8 26/02/2019 : correction for 16-bit platform (bad bit shifting during 18-bits acquisition)
 - 1.7 25/07/2019 : support on MCP3421 confirmed, changed to MCP342x. Update examples

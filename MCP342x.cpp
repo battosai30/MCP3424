@@ -1,4 +1,4 @@
-/* MCP342x library version 1.9.2
+/* MCP342x library version 1.9.3
 
 Writed by B@tto
 Contact : batto@hotmail.fr
