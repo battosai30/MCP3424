@@ -34,7 +34,7 @@ void loop(){
     Serial.print(i);
     Serial.print(" : ");  
     Serial.print(Voltage[i-1]);
-    Serial.println(" microVolt");
+    Serial.println(" nanoVolt");
 
   }
 
@@ -51,7 +51,7 @@ void loop(){
       Serial.print(i);
       Serial.print(" : ");  
       Serial.print(Voltage[i-1]);
-      Serial.println(" microVolt");
+      Serial.println(" nanoVolt");
 
   }
 
@@ -68,7 +68,7 @@ void loop(){
       Serial.print(i);
       Serial.print(" : ");  
       Serial.print(Voltage[i-1]);
-      Serial.println(" microVolt");
+      Serial.println(" nanoVolt");
 
   }
 
@@ -85,7 +85,7 @@ void loop(){
       Serial.print(i);
       Serial.print(" : ");  
       Serial.print(Voltage[i-1]);
-      Serial.println(" microVolt");
+      Serial.println(" nanoVolt");
 
   }
 }
