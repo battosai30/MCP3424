@@ -30,7 +30,7 @@ void loop(){
  
   Serial.print("Voltage = "); // print result
   Serial.print(Voltage);
-  Serial.println(" microVolt");
+  Serial.println(" nanoVolt");
   
   delay (1000);
   
