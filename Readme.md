@@ -8,10 +8,11 @@ Contact: batto@hotmail.fr
 
 ### Current version ###
 
-1.9.3
+1.9.4
 
 ## History ##
 
+- 1.9.4 15/05/2023 : fix bad units in examples (microvolt instead of nanovolt)
 - 1.9.3  25/01/2023 : revert back about typedef enum etc ... Caused issues on ESP32
 - 1.92 06/04/2022 : add some constrain in setConfiguration() to avoid out of index crashes, and add a getAddress() function to get i2c computed real address
 - 1.9 27/08/2021 : changed CHANNELS to byte type in setConfiguration()
